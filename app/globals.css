@@ -44,6 +44,15 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@theme {
+  --color-customBlue: #4ea8de;
+  --color-customPurple: #5E60CE;
+  --color-appGray: #1A1A1A;
+  --color-headerBlack: #0D0D0D;
+  --color-customGray: #808080;
+  --spacing-50: 12.5rem;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
