@@ -14,10 +14,11 @@ export async function GET(
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    const { id } = await params
 
     const task = await prismadb.task.findUnique({
       where: { 
-          id: params.id, 
+          id: id, 
           userId 
         },
     });
@@ -44,11 +45,13 @@ export async function PUT(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params
+
     const { title, color, completed } = await req.json();
     
     const task = await prismadb.task.updateMany({
       where: { 
-        id: params.id, 
+        id: id, 
         userId 
       },
       data: { 
@@ -80,9 +83,11 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params
+
     const task = await prismadb.task.deleteMany({
       where: { 
-        id: params.id, 
+        id: id, 
         userId 
       },
     });
